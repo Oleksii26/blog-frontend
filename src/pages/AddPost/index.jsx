@@ -68,7 +68,7 @@ export const AddPost = () => {
     }
   }
   useEffect(() => {
-    /* if (id) {  */
+     if (id) {  
     axios.get(`/posts/${id}`)
       .then(({ data }) => {
         setTitle(data.title)
@@ -76,8 +76,8 @@ export const AddPost = () => {
         setImageUrl(data.imageUrl)
         setTags(data.tags.join(', '))
       }).catch(err => console.warn(err))
-    /*     } */
-  });
+      } 
+  }, []);
 
   const options = useMemo(
     () => ({
@@ -98,7 +98,7 @@ export const AddPost = () => {
   }
 
   return (
-    <Paper style={{ padding: 30 }}>
+    <Paper elevation={0} style={{ padding: 30 }}>
       <Button onClick={() => inputFileRef.current.click()} variant="outlined" size="large">
         Загрузить превью
       </Button>

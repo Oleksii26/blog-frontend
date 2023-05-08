@@ -18,19 +18,18 @@ export const FullPost = () => {
         setData(res.data)
         setLoading(false)
       }).catch(e => console.log(e))
-  }, [id]);
+  }, []);
 
   if (isLoading) {
     return <Post isLoading={isLoading} isFullPost />
   }
-
   return (
     <>
       <Post
         key={data._id}
         id={data._id}
         title={data.title}
-        imageUrl={data.imageUrl ? `http://localhost:3001${data.imageUrl}` : ''}
+        imageUrl={data.imageUrl ? `https://blog-of-enthusiasts.onrender.com${data.imageUrl}` : ''}
         user={data.user}
         fullName={data.fullName}
         createdAt={data.createdAt}

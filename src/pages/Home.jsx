@@ -35,10 +35,10 @@ export const Home = () => {
         <Grid xs={8} item>
 
           {(isPostsLoading ? [...Array(5)] : posts.items).map((e, index) => isPostsLoading ? <Post key={index} isLoading={true} /> : (
-            <Post
+            <Post key={e._id}
               id={e._id}
               title={e.title}
-              imageUrl={e.imageUrl ? `http://localhost:3001${e.imageUrl}` : ''}
+              imageUrl={e.imageUrl ? `https://blog-of-enthusiasts.onrender.com${e.imageUrl}` : ''}
               user={e.user}
               fullName={e.fullName}
               createdAt={e.createdAt}
