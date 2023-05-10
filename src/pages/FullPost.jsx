@@ -29,7 +29,7 @@ export const FullPost = () => {
         key={data._id}
         id={data._id}
         title={data.title}
-        imageUrl={data.imageUrl ? `https://blog-of-enthusiasts.onrender.com${data.imageUrl}` : ''}
+        imageUrl={data.imageUrl}
         user={data.user}
         fullName={data.fullName}
         createdAt={data.createdAt}

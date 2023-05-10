@@ -11,7 +11,7 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchAuthMe()) 
+    dispatch(fetchAuthMe())
   }, [dispatch]);
 
   return (

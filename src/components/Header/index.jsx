@@ -12,10 +12,10 @@ export const Header = () => {
   const dispatch = useDispatch()
 
   const onClickLogout = () => {
-    if(window.confirm('Are you, fucking serious?'))
-    dispatch(logout())
+    if (window.confirm('Are you serious?'))
+      dispatch(logout())
     window.localStorage.removeItem('token')
-   };
+  };
   return (
     <div className={styles.root}>
       <Container maxWidth="lg">
@@ -24,14 +24,16 @@ export const Header = () => {
             <div>MY BLOG</div>
           </Link>
           <div className={styles.buttons}>
-            { isAuth ? (
+            {isAuth ? (
               <>
                 <Link to="/add-post">
                   <Button variant="contained">Написать статью</Button>
                 </Link>
-                <Button onClick={onClickLogout} variant="contained" color="error">
-                  Выйти
-                </Button>
+                <Link to='/'>
+                  <Button onClick={onClickLogout} variant="contained" color="error">
+                    Выйти
+                  </Button>
+                </Link>
               </>
             ) : (
               <>

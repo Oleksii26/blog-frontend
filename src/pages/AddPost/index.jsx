@@ -29,8 +29,9 @@ export const AddPost = () => {
       const formData = new FormData()
       const file = e.target.files[0]
       formData.append('image', file)
-      const { data } = await axios.post('/upload', formData)
-      setImageUrl(data.url)
+      const { data } = await axios.post('/uploads', formData)
+      console.log(data);
+      setImageUrl(data.result.url)
     } catch (error) {
       console.warn(error);
       alert('Fail of load file')
@@ -68,15 +69,15 @@ export const AddPost = () => {
     }
   }
   useEffect(() => {
-     if (id) {  
-    axios.get(`/posts/${id}`)
-      .then(({ data }) => {
-        setTitle(data.title)
-        setText(data.text)
-        setImageUrl(data.imageUrl)
-        setTags(data.tags.join(', '))
-      }).catch(err => console.warn(err))
-      } 
+    if (id) {
+      axios.get(`/posts/${id}`)
+        .then(({ data }) => {
+          setTitle(data.title)
+          setText(data.text)
+          setImageUrl(data.imageUrl)
+          setTags(data.tags.join(', '))
+        }).catch(err => console.warn(err))
+    }
   }, []);
 
   const options = useMemo(
@@ -108,7 +109,7 @@ export const AddPost = () => {
           <Button variant="contained" color="error" onClick={onClickRemoveImage}>
             Удалить
           </Button>
-          <img className={styles.image} src={`https://blog-of-enthusiasts.onrender.com${imageUrl}`} alt="Uploaded" />
+          <img className={styles.image} src={imageUrl} alt="Uploaded" />
         </>
       )}
       <br />

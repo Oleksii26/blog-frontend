@@ -36,7 +36,6 @@ export const Post = ({
     if (window.confirm('Are you, fucking serious?'))
       dispatch(fetchRemovePost(id))
   }
-
 return (
   <div className={clsx(styles.root, { [styles.rootFull]: isFullPost })}>
     {isEditable && (

@@ -16,8 +16,8 @@ export const Login = () => {
   const isAuth = useSelector(selectIsAuth)
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
-      email: '',
-      password: ''
+      email: 'Juan@gmail.com',
+      password: '6666666'
     },
     mode: 'onChange'
   })

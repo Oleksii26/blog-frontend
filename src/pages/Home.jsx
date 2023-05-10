@@ -25,6 +25,7 @@ export const Home = () => {
     dispatch(fetchPosts())
     dispatch(fetchTags())
   }, [dispatch]);
+
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
@@ -38,7 +39,7 @@ export const Home = () => {
             <Post key={e._id}
               id={e._id}
               title={e.title}
-              imageUrl={e.imageUrl ? `https://blog-of-enthusiasts.onrender.com${e.imageUrl}` : ''}
+              imageUrl={e.imageUrl}
               user={e.user}
               fullName={e.fullName}
               createdAt={e.createdAt}
