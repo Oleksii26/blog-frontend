@@ -1,4 +1,4 @@
-import { fetchPosts, fetchRemovePost, fetchTags } from "./operationsPosts"
+import { fetchPopularPosts, fetchPosts, fetchRemovePost, fetchTags } from "./operationsPosts"
 
 const { createSlice } = require("@reduxjs/toolkit")
 
@@ -16,7 +16,7 @@ const initialState = {
 const postSlice = createSlice({
     name: 'post',
     initialState,
-    reducers: {      
+    reducers: {
     },
     extraReducers: {
         [fetchPosts.pending]: (state) => {
@@ -28,6 +28,18 @@ const postSlice = createSlice({
             state.posts.status = 'Loaded'
         },
         [fetchPosts.rejected]: (state) => {
+            state.posts.items = []
+            state.posts.status = 'error'
+        },
+        [fetchPopularPosts.pending]: (state) => {
+            state.posts.items = []
+            state.posts.status = 'Loading'
+        },
+        [fetchPopularPosts.fulfilled]: (state, action) => {
+            state.posts.items = action.payload
+            state.posts.status = 'Loaded'
+        },
+        [fetchPopularPosts.rejected]: (state) => {
             state.posts.items = []
             state.posts.status = 'error'
         },
@@ -50,3 +62,4 @@ const postSlice = createSlice({
 })
 
 export const postsRducer = postSlice.reducer
+

@@ -3,6 +3,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { PostList } from './PostList';
+import { PopularList } from './PopularList';
+
+
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -12,6 +16,8 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
+
+
 
     return (
         <div
@@ -53,8 +59,10 @@ export const NavBar = () => {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
+                <PostList />
             </TabPanel>
             <TabPanel value={value} index={1}>
+                <PopularList />
             </TabPanel>
         </Box>
     );

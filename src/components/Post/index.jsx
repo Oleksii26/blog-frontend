@@ -36,7 +36,6 @@ export const Post = ({
     if (window.confirm('Are you, fucking serious?'))
       dispatch(fetchRemovePost(id))
   }
-
   return (
     <div className={clsx(styles.root, { [styles.rootFull]: isFullPost })}>
       {isEditable && (
@@ -62,7 +61,7 @@ export const Post = ({
         <UserInfo {...user} additionalText={createdAt} />
         <div className={styles.indention}>
           <h2 className={clsx(styles.title, { [styles.titleFull]: isFullPost })}>
-            {isFullPost ? title : (isLogin ?  <Link to={`/posts/${id}`}>{title}</Link> : title )}
+            {isFullPost ? title : (isLogin ? <Link to={`/posts/${id}`}>{title}</Link> : title)}
           </h2>
           <ul className={styles.tags}>
             {tags.map((name) => (
