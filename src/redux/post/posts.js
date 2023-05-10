@@ -16,7 +16,8 @@ const initialState = {
 const postSlice = createSlice({
     name: 'post',
     initialState,
-    reducer: {},
+    reducers: {      
+    },
     extraReducers: {
         [fetchPosts.pending]: (state) => {
             state.posts.items = []
@@ -44,9 +45,7 @@ const postSlice = createSlice({
         },
         [fetchRemovePost.pending]: (state, action) => {
             state.posts.items = state.posts.items.filter(e => e._id !== action.meta.arg)
-
         },
-
     }
 })
 
