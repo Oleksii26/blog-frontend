@@ -1,4 +1,4 @@
-import { fetchPopularPosts, fetchPosts, fetchRemovePost, fetchTags } from "./operationsPosts"
+import { fetchPopularPosts, fetchPosts, fetchRemovePost, fetchTags, fetchTagsByTag } from "./operationsPosts"
 
 const { createSlice } = require("@reduxjs/toolkit")
 
@@ -52,6 +52,18 @@ const postSlice = createSlice({
             state.tags.status = 'Loaded'
         },
         [fetchTags.rejected]: (state) => {
+            state.tags.items = []
+            state.tags.status = 'error'
+        },
+        [fetchTagsByTag.pending]: (state) => {
+            state.tags.items = []
+            state.tags.status = 'Loading'
+        },
+        [fetchTagsByTag.fulfilled]: (state, action) => {
+            state.tags.items = action.payload
+            state.tags.status = 'Loaded'
+        },
+        [fetchTagsByTag.rejected]: (state) => {
             state.tags.items = []
             state.tags.status = 'error'
         },

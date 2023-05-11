@@ -24,7 +24,7 @@ export const PopularList = () => {
                             imageUrl={e.imageUrl}
                             user={e.user}
                             fullName={e.fullName}
-                            createdAt={e.createdAt}
+                            createdAt={e.createdAt.slice(0, 16)}
                             viewCount={e.viewCount}
                             commentsCount={3}
                             tags={e.tags}
