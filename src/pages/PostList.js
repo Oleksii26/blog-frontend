@@ -16,7 +16,7 @@ export const PostList = () => {
     const isPostsLoading = posts.status === 'Loading'
     return (
         <>
-                <Grid xs={10} item>
+                <Grid xs={16} item>
 
                     {(isPostsLoading ? [...Array(5)] : posts.items).map((e, index) => isPostsLoading ? <Post key={index} isLoading={true} /> : (
                         <Post key={e._id}

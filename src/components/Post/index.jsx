@@ -33,7 +33,7 @@ export const Post = ({
   }
   const isLogin = Boolean(window.localStorage.getItem('token'))
   const onClickRemove = () => {
-    if (window.confirm('Are you, fucking serious?'))
+    if (window.confirm('Are you, serious?'))
       dispatch(fetchRemovePost(id))
   }
   return (
