@@ -28,15 +28,10 @@ export const Tags = () => {
                 }} color="rgba(54, 108, 214, 1)" /> :
                     <Grid container sx={{ gap: 6 }} >
 
-                        {post.map(e => <TagsCard
+                        {post.map(e => <TagsCard key={e._id}
                             title={e.title}
-                            createdAt={e.createdAt}
                             imageUrl={e.imageUrl}
-                            tags
                             text={e.text}
-                            updatedAt
-                            user
-                            viewCount
                             id={e._id}
                         />)}
                     </Grid>

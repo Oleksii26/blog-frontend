@@ -21,7 +21,7 @@ export const PopularList = () => {
                 left: '50%',
                 top: '50',
                 transform: 'translateY(-50%)'
-            }} color="rgba(54, 108, 214, 1)" />  :
+            }} color="rgba(54, 108, 214, 1)" /> :
                 <Grid xs={16} item>
 
                     {(isPostsLoading ? [...Array(5)] : posts.items).map((e, index) => isPostsLoading ? <Post key={index} isLoading={true} /> : (

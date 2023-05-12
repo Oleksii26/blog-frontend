@@ -6,10 +6,10 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import styles from '../Post/Post.module.scss';
-import clsx from 'clsx';
 
 export const TagsCard = ({ title, imageUrl, text, id }) => {
     return (
+
         <Card variant="outlined" sx={{
             maxWidth: 345,
             borderRadius: 5,
@@ -26,11 +26,11 @@ export const TagsCard = ({ title, imageUrl, text, id }) => {
                     alt={title}
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        <h5 className={clsx(styles.title)}>
-                            <Link className={clsx(styles.title)} variant="h5" to={`/posts/${id}`}>{title}</Link>
-                        </h5>
-                    </Typography>
+
+                    <Link className={styles.link} to={`/posts/${id}`}>
+                        <Typography gutterBottom variant="h4" component="div">{title}
+                        </Typography>
+                    </Link>
                     <Typography color="text.secondary">
                         {text}
                     </Typography>

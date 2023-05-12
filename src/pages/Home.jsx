@@ -28,17 +28,17 @@ export const Home = () => {
             items={[
               {
                 user: {
-                  fullName: 'Вася Пупкин',
-                  avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
+                  fullName: 'Bruce Willis',
+                  avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT68f7Uf8JqLkYmSpDWZm9Th5-OQw3-HoGXAw&usqp=CAU',
                 },
-                text: 'Это тестовый комментарий',
+                text: 'I love to drink coffe in the morning',
               },
               {
                 user: {
-                  fullName: 'Иван Иванов',
-                  avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
+                  fullName: 'Eva Green',
+                  avatarUrl: 'https://ethnicelebs.com/wp-content/uploads/2012/10/Eva-Green-cropped.jpg',
                 },
-                text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
+                text: 'I prefer tea',
               },
             ]}
             isLoading={false}

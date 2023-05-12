@@ -10,7 +10,6 @@ import { logout, selectIsAuth } from '../../redux/auth/auth';
 export const Header = () => {
   const isAuth = useSelector(selectIsAuth)
   const dispatch = useDispatch()
-
   const onClickLogout = () => {
     if (window.confirm('Are you serious?'))
       dispatch(logout())

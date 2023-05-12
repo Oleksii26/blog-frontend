@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { Post } from "../components/Post";
 import { Index } from "../components/AddComment";
 import { CommentsBlock } from "../components/CommentsBlock";
-import { FadeLoader } from "react-spinners";
 
 export const FullPost = () => {
 
@@ -33,7 +32,7 @@ export const FullPost = () => {
         imageUrl={data.imageUrl}
         user={data.user}
         fullName={data.fullName}
-        createdAt={data.createdAt}
+        createdAt={data.createdAt.slice(0, 16)}
         viewCount={data.viewCount}
         commentsCount={3}
         tags={data.tags}
@@ -47,17 +46,17 @@ export const FullPost = () => {
         items={[
           {
             user: {
-              fullName: "Вася Пупкин",
-              avatarUrl: "https://mui.com/static/images/avatar/1.jpg",
-            },
-            text: "Это тестовый комментарий 555555",
-          },
-          {
-            user: {
-              fullName: "Иван Иванов",
-              avatarUrl: "https://mui.com/static/images/avatar/2.jpg",
-            },
-            text: "When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top",
+              fullName: 'Bruce Willis',
+                  avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT68f7Uf8JqLkYmSpDWZm9Th5-OQw3-HoGXAw&usqp=CAU',
+                },
+                text: 'I love to drink coffe in the morning',
+              },
+              {
+                user: {
+                  fullName: 'Eva Green',
+                  avatarUrl: 'https://ethnicelebs.com/wp-content/uploads/2012/10/Eva-Green-cropped.jpg',
+                },
+                text: 'I prefer tea',
           },
         ]}
         isLoading={false}
