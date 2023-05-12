@@ -4,27 +4,36 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
+import styles from '../Post/Post.module.scss';
+import clsx from 'clsx';
 
-export const TagsCard = ({ title }) => {
+export const TagsCard = ({ title, imageUrl, text, id }) => {
     return (
-        <Card sx={{ maxWidth: 345, border: 1 }}>
-            <CardActionArea>
+        <Card sx={{
+            maxWidth: 345,
+            borderRadius: 5,
+            backgroundColor: '#ccc5c5',
+        }}>
+
+            <CardActionArea >
                 <CardMedia
                     component="img"
-                    height="140"
-                    image="https://images.prom.ua/3004456278_w1280_h1280_d_108_a.png?fresh=1"
-                    alt="green iguana"
+                    height="240"
+                    image={imageUrl}
+                    alt={title}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        {title}
+                        <h2 className={clsx(styles.title/* , { [styles.titleFull]: isFullPost } */)}>
+                            <Link variant="h5" to={`/posts/${id}`}>{title}</Link>
+                        </h2>
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                        {text}
                     </Typography>
                 </CardContent>
             </CardActionArea>
-        </Card>
+        </Card >
     );
 }

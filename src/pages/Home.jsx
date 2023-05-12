@@ -4,12 +4,13 @@ import { Grid } from '@mui/material';
 import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTags } from '../redux/post/operationsPosts';
+import { fetchPosts, fetchTags } from '../redux/post/operationsPosts';
 
 export const Home = () => {
   const { tags } = useSelector(state => state.posts)
   const isTagsLoading = tags.status === 'Loading'
   const dispatch = useDispatch()
+
 
   useEffect(() => {
     dispatch(fetchTags())

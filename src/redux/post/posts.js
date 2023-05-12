@@ -9,6 +9,7 @@ const initialState = {
     },
     tags: {
         items: [],
+        tags: [],
         status: 'Loading'
     },
 }
@@ -56,15 +57,15 @@ const postSlice = createSlice({
             state.tags.status = 'error'
         },
         [fetchTagsByTag.pending]: (state) => {
-            state.tags.items = []
+            state.tags.tags = []
             state.tags.status = 'Loading'
         },
         [fetchTagsByTag.fulfilled]: (state, action) => {
-            state.tags.items = action.payload
+            state.tags.tags = action.payload
             state.tags.status = 'Loaded'
         },
         [fetchTagsByTag.rejected]: (state) => {
-            state.tags.items = []
+            state.tags.tags = []
             state.tags.status = 'error'
         },
         [fetchRemovePost.pending]: (state, action) => {
