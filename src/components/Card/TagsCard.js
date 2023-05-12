@@ -10,10 +10,12 @@ import clsx from 'clsx';
 
 export const TagsCard = ({ title, imageUrl, text, id }) => {
     return (
-        <Card sx={{
+        <Card variant="outlined" sx={{
             maxWidth: 345,
             borderRadius: 5,
             backgroundColor: '#ccc5c5',
+            height: 420,
+            paddingBottom: 20
         }}>
 
             <CardActionArea >
@@ -25,11 +27,11 @@ export const TagsCard = ({ title, imageUrl, text, id }) => {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        <h2 className={clsx(styles.title/* , { [styles.titleFull]: isFullPost } */)}>
-                            <Link variant="h5" to={`/posts/${id}`}>{title}</Link>
-                        </h2>
+                        <h5 className={clsx(styles.title)}>
+                            <Link className={clsx(styles.title)} variant="h5" to={`/posts/${id}`}>{title}</Link>
+                        </h5>
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography color="text.secondary">
                         {text}
                     </Typography>
                 </CardContent>

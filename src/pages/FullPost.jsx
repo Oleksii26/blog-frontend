@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Post } from "../components/Post";
 import { Index } from "../components/AddComment";
 import { CommentsBlock } from "../components/CommentsBlock";
+import { FadeLoader } from "react-spinners";
 
 export const FullPost = () => {
 
@@ -64,5 +65,5 @@ export const FullPost = () => {
         <Index />
       </CommentsBlock>
     </>
-  );
+      )
 };

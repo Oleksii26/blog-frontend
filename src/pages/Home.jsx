@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPosts, fetchTags } from '../redux/post/operationsPosts';
+import { fetchTags } from '../redux/post/operationsPosts';
 
 export const Home = () => {
   const { tags } = useSelector(state => state.posts)
@@ -22,7 +22,6 @@ export const Home = () => {
         <Grid xs={8} item>
           <NavBar />
         </Grid>
-
         <Grid xs={4} item>
           <TagsBlock items={tags.items} isLoading={isTagsLoading} />
           <CommentsBlock

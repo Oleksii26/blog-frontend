@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { fetchPopularPosts } from '../redux/post/operationsPosts';
 import { Grid } from '@mui/material';
 import { Post } from '../components/Post';
+import { FadeLoader } from 'react-spinners';
 
 export const PopularList = () => {
     const userData = useSelector(state => state.auth.data)
@@ -15,7 +16,13 @@ export const PopularList = () => {
     const isPostsLoading = posts.status === 'Loading'
     return (
         <>
-                <Grid xs={16} item> 
+            {isPostsLoading ? <FadeLoader style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50',
+                transform: 'translateY(-50%)'
+            }} color="rgba(54, 108, 214, 1)" />  :
+                <Grid xs={16} item>
 
                     {(isPostsLoading ? [...Array(5)] : posts.items).map((e, index) => isPostsLoading ? <Post key={index} isLoading={true} /> : (
                         <Post key={e._id}
@@ -31,8 +38,8 @@ export const PopularList = () => {
                             isEditable={userData?._id === e.user._id}
                         />
                     ))}
-                 
-             </Grid> 
-        </> 
+                </Grid>
+            }
+        </>
     )
 }
