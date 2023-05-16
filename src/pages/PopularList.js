@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { fetchPopularPosts } from '../redux/post/operationsPosts';
 import { Grid } from '@mui/material';
 import { Post } from '../components/Post';
-import { FadeLoader } from 'react-spinners';
+import Skeleton from "@mui/material/Skeleton";
+import css from './Skeleton.module.css'
 
 export const PopularList = () => {
     const userData = useSelector(state => state.auth.data)
@@ -16,12 +17,11 @@ export const PopularList = () => {
     const isPostsLoading = posts.status === 'Loading'
     return (
         <>
-            {isPostsLoading ? <FadeLoader style={{
-                position: 'absolute',
-                left: '50%',
-                top: '50',
-                transform: 'translateY(-50%)'
-            }} color="rgba(54, 108, 214, 1)" /> :
+            {isPostsLoading ? <Skeleton className={css.skeleton}
+                variant="rectangular"
+                width={'100%'}
+                height={118}
+            >Waiting for a response from the server...</Skeleton> :
                 <Grid xs={16} item>
 
                     {(isPostsLoading ? [...Array(5)] : posts.items).map((e, index) => isPostsLoading ? <Post key={index} isLoading={true} /> : (

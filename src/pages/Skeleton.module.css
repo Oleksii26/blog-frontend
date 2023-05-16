@@ -1,0 +1,7 @@
+.skeleton {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large
+}
